@@ -5,20 +5,9 @@
 
 using namespace std;
 
-void output(int begin_val, int end_val);
-
-int main(){
-    
-    // Write the Sample Inputs
-    output (900, 1000);
-    
-    return 0;
-}
-
-void output(int begin_val, int end_val){
+int output(int begin_val, int end_val){
 
     vector<int> counters;
-    vector<int>::iterator it;
 
     for (int i = begin_val; i <= end_val; i++){
         int counter = 1;
@@ -30,8 +19,26 @@ void output(int begin_val, int end_val){
         }
         counters.push_back(counter);
     }
+    
+    return *max_element(counters.begin(), counters.end());
+}
 
-    cout << begin_val << " " << end_val << " " << *max_element(counters.begin(), counters.end()) << endl;
-} 
+int main(){
+    int out;
+    int begin;
+    int end;
+    
+    for (int i = 0; i < 4; i++){
+        cin >> begin >> end;
+        out = output(begin, end);
+    
+        cout << begin << " " << end << " " << out << endl;
+    }
+    
+
+    return 0;
+}
+
+ 
     
     
